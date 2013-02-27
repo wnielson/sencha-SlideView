@@ -3,8 +3,8 @@ Ext.define("SlideExample.view.Main", {
     
     requires: [
         'Ext.dataview.List',
-        'Ext.ux.slide.View',
-        'Ext.ux.plugin.ListActions'
+        'Ext.ux.slide.View'
+        //'Ext.ux.plugin.ListActions'
     ],
 
     views: [
@@ -168,32 +168,9 @@ Ext.define("SlideExample.view.Main", {
             },
             
             rightContainer: {
-                xtype: 'list',
+                xtype: 'panel',
                 width: 200,
-                data: [{
-                    name: 'Item 4'
-                },{
-                    name: 'Item 5'
-                },{
-                    name: 'Item 6'
-                }],
-                itemTpl: '{name}',
-                items: [{
-                    xtype: 'toolbar',
-                    docked: 'top',
-                    title: 'Right Menu'
-                }],
-                listeners: {
-                    itemtap: function(list, index) {
-                        var slideview   = list.getParent(),
-                            otherList   = slideview.getLeftContainer(),
-                            container   = slideview.getContainer();
-                        
-                        otherList.deselectAll();
-                        container.setActiveItem(index+3);
-                        Ext.defer(slideview.closeContainer, 200, slideview);
-                    }
-                }
+                html:'<p>Here is the right panel</p>'
             }
 
         }]
