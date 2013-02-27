@@ -152,14 +152,10 @@ Ext.define("SlideExample.view.Main", {
                 listeners: {
                     itemtap: function(list, index) {
                         var slideview   = list.getParent(),
-                            otherList   = slideview.getRightContainer(),
                             container   = slideview.getContainer();
 
-                        otherList.deselectAll();
                         container.setActiveItem(index);
                         Ext.defer(slideview.closeContainer, 200, slideview);
-
-
                     },
                     initialize: function(list) {
                         list.select(0);
@@ -170,7 +166,13 @@ Ext.define("SlideExample.view.Main", {
             rightContainer: {
                 xtype: 'panel',
                 width: 200,
-                html:'<p>Here is the right panel</p>'
+                html:'<p>Here is the right panel.  You can put whatever you\'d like over here.</p>',
+                styleHtmlContent: true,
+                items: [{
+                    xtype: 'toolbar',
+                    docked: 'top',
+                    title: 'Right Container'
+                }]
             }
 
         }]

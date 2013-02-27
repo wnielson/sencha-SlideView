@@ -141,7 +141,8 @@ Ext.define('Ext.ux.slide.View', {
                             this.fireEvent('opened', this);
 
                             // Apply mask
-                            //this.doMaskItem(this.getContainer().getActiveItem(), true);
+                            // TODO: I'd rather have this applied at dragstart
+                            this.doMaskItem(this.getContainer().getActiveItem(), true);
                         }
 
                         // Fire the event now that the animation is done.
@@ -200,7 +201,8 @@ Ext.define('Ext.ux.slide.View', {
                 if (leftContainer) {
                     if (draggable.offset.x >=0 && deltaX > 0) {
                         // Sliding right; show left container
-                        me.doMaskItem(me.getContainer().getActiveItem(), true);
+                        // TODO: Putting the doMaskItem call here seems to mess things up
+                        //me.doMaskItem(me.getContainer().getActiveItem(), true);
                         leftContainer.addCls('show');
                     }
                 }
@@ -208,7 +210,7 @@ Ext.define('Ext.ux.slide.View', {
                 if (rightContainer) {
                     if (draggable.offset.x <=0 && deltaX < 0) {
                         // Sliding left; show right container
-                        me.doMaskItem(me.getContainer().getActiveItem(), true);
+                        //me.doMaskItem(me.getContainer().getActiveItem(), true);
                         rightContainer.addCls('show');
                     }
                 }
