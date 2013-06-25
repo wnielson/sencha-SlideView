@@ -203,7 +203,8 @@ Ext.define('Ext.ux.slide.View', {
                         // Sliding right; show left container
                         // TODO: Putting the doMaskItem call here seems to mess things up
                         //me.doMaskItem(me.getContainer().getActiveItem(), true);
-                        leftContainer.addCls('show');
+                        rightContainer.element.setVisible(false);
+						leftContainer.element.setVisible(true);
                     }
                 }
 
@@ -211,7 +212,8 @@ Ext.define('Ext.ux.slide.View', {
                     if (draggable.offset.x <=0 && deltaX < 0) {
                         // Sliding left; show right container
                         //me.doMaskItem(me.getContainer().getActiveItem(), true);
-                        rightContainer.addCls('show');
+                        leftContainer.element.setVisible(false);
+						rightContainer.element.setVisible(true);
                     }
                 }
                 if (deltaX > 0) {
